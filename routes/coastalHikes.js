@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const coastalHikesController = require('../controllers/coastalHikes');
-const { saveCoastalHikes } = require('../middleware/validateCoastalHikesAndTrails');
+const { saveCoastalHikes } = require('../middleware/validate');
 
 router.get('/', coastalHikesController.getAll);
 
