@@ -1,26 +1,57 @@
-const validator = require('../helpers/validate')
+// middleware/validateCoastalHikesAndTrails.js
+const validator = require('../helpers/validate');
 
-const saveContact = (req, res, next) => {
-    const validationRule = {
-        firstName: 'required|string',
-        lastName: 'required|string',
-        email: 'required|email',
-        favoriteColor: 'required|string',
-        birthday: 'string'
-    };
-    validator(req.body, validationRule, {}, (err, status) => {
-        if (!status) {
-            res.status(412).json({
-                success: false,
-                message: 'Validation failed',
-                data: err
-            });
-        } else {
-            next();
-        }
-    });
+// Coastal Hikes validation
+const saveCoastalHikes = (req, res, next) => {
+  const validationRule = {
+    name: 'required|string',
+    region: 'required|string',
+    difficulty: 'required|string',
+    distancekm: 'required|numeric',
+    description: 'required|string',
+    price: 'required|numeric',
+    availableDates: 'required|array'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).json({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
+// Trails validation
+const saveTrails = (req, res, next) => {
+  const validationRule = {
+    name: 'required|string',
+    location: 'required|string',
+    difficulty: 'required|string',
+    distancekm: 'required|numeric',
+    description: 'required|string',
+    price: 'required|numeric',
+    availableDates: 'required|array'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).json({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
 };
 
 module.exports = {
-    saveContact
+  saveCoastalHikes,
+  saveTrails
 };
