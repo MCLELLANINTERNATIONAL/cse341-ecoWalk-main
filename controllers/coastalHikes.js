@@ -26,7 +26,6 @@ const getSingle = async (req, res) => {
   }
 
   const coastalHikeId = new ObjectId(req.params.id);
-
   try {
     const coastalHike = await mongodb
       .getDatabase()
@@ -44,7 +43,6 @@ const getSingle = async (req, res) => {
   }
 };
 
-// create coastal hike
 const createCoastalHike = async (req, res) => {
   //#swagger.tags = ['Coastal Hikes']
   const coastalHike = {
@@ -82,7 +80,6 @@ const createCoastalHike = async (req, res) => {
   }
 };
 
-// update coastal hike
 const updateCoastalHike = async (req, res) => {
   //#swagger.tags = ['Coastal Hikes']
   if (!ObjectId.isValid(req.params.id)) {
@@ -121,7 +118,6 @@ const updateCoastalHike = async (req, res) => {
   }
 };
 
-// delete coastal hike
 const deleteCoastalHike = async (req, res) => {
   //#swagger.tags = ['Coastal Hikes']
   if (!ObjectId.isValid(req.params.id)) {
@@ -131,7 +127,6 @@ const deleteCoastalHike = async (req, res) => {
   }
 
   const coastalHikeId = new ObjectId(req.params.id);
-
   try {
     const response = await mongodb
       .getDatabase()
