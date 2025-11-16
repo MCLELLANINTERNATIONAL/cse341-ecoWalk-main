@@ -5,7 +5,7 @@ const doc = {
         title: 'ecoWalk API',
         description: 'API documentation for coastal hikes and trails'
     },
-    host: 'localhost:3000',
+    host: 'localhost:3005',
     schemes: ['http', 'https'],
 };
 
