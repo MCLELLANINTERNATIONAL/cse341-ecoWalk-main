@@ -1,7 +1,6 @@
 const mongodb = require('../data/database');
 const { ObjectId } = require('mongodb');
 
-// GET all trails
 const getAll = async (req, res) => {
   try {
     //#swagger.tags = ['Trails']
@@ -18,7 +17,6 @@ const getAll = async (req, res) => {
   }
 };
 
-// GET single trail by id
 const getSingle = async (req, res) => {
   //#swagger.tags = ['Trails']
   if (!ObjectId.isValid(req.params.id)) {
@@ -28,7 +26,6 @@ const getSingle = async (req, res) => {
   }
 
   const trailId = new ObjectId(req.params.id);
-
   try {
     const trail = await mongodb
       .getDatabase()
@@ -46,7 +43,6 @@ const getSingle = async (req, res) => {
   }
 };
 
-// CREATE trail
 const createTrail = async (req, res) => {
   //#swagger.tags = ['Trails']
   const trail = {
@@ -82,7 +78,6 @@ const createTrail = async (req, res) => {
   }
 };
 
-// UPDATE trail
 const updateTrail = async (req, res) => {
   //#swagger.tags = ['Trails']
   if (!ObjectId.isValid(req.params.id)) {
@@ -121,7 +116,6 @@ const updateTrail = async (req, res) => {
   }
 };
 
-// DELETE trail
 const deleteTrail = async (req, res) => {
   //#swagger.tags = ['Trails']
   if (!ObjectId.isValid(req.params.id)) {
@@ -131,7 +125,6 @@ const deleteTrail = async (req, res) => {
   }
 
   const trailId = new ObjectId(req.params.id);
-
   try {
     const response = await mongodb
       .getDatabase()
