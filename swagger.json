@@ -73,17 +73,8 @@
         }
       }
     },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/contacts/": {
+    
+    "/coastalHikes/": {
       "get": {
         "tags": [
           "Coastal Hikes"
@@ -145,7 +136,7 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "/coastalHikes/{id}": {
       "get": {
         "tags": [
           "Coastal Hikes"
