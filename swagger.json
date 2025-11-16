@@ -14,7 +14,7 @@
     "/": {
       "get": {
         "tags": [
-          "Trails"
+          "Hello World"
         ],
         "description": "",
         "responses": {
