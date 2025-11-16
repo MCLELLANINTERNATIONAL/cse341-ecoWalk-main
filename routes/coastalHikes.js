@@ -12,6 +12,6 @@ router.post('/', saveCoastalHikes, coastalHikesController.createCoastalHike);
 
 router.put('/:id', saveCoastalHikes, coastalHikesController.updateCoastalHike);
 
-outer.delete('/:id', coastalHikesController.deleteCoastalHike);
+router.delete('/:id', coastalHikesController.deleteCoastalHike);
 
 module.exports = router;
