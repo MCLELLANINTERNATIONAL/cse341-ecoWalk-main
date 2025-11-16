@@ -2,15 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 const coastalHikesController = require('../controllers/coastalHikes');
-const { saveCoastalHikes } = require('../middleware/validate');
+const validation = require('../middleware/validate');
 
 router.get('/', coastalHikesController.getAll);
 
 router.get('/:id', coastalHikesController.getSingle);
 
-router.post('/', saveCoastalHikes, coastalHikesController.createCoastalHike);
+router.post('/', validation.saveCoastalHikes, coastalHikesController.createCoastalHike);
 
-router.put('/:id', saveCoastalHikes, coastalHikesController.updateCoastalHike);
+router.put('/:id', validation.saveCoastalHikes, coastalHikesController.updateCoastalHike);
 
 router.delete('/:id', coastalHikesController.deleteCoastalHike);
 
