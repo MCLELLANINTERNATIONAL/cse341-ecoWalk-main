@@ -13,7 +13,6 @@ const outputFile = './swagger.json';
 
 // IMPORTANT: include ALL your route files here
 const endpointsFiles = [
-    './routes/index.js',
     './routes/coastalHikes.js',
     './routes/trails.js'
 ];

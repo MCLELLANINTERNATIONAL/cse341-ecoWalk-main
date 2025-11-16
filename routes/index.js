@@ -1,12 +1,16 @@
 const router = require('express').Router();
 
-router.use('/', require('./swagger'));
+// Swagger UI at /api-docs
+router.use('/api-docs', require('./swagger'));
 
+// Root route
 router.get('/', (req, res) => { 
-    //#swagger.tags = ['Hello World']
-    res.send('Hello World!'); });
+  //#swagger.tags = ['Hello World']
+  res.send('Hello World!');
+});
 
-router.use('/contacts', require('./coastalHikes'));
+// Collections
+router.use('/coastalHikes', require('./coastalHikes')); // 
 router.use('/trails', require('./trails'));
 
 module.exports = router;
