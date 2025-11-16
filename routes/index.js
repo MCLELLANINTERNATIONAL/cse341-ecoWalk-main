@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     //#swagger.tags = ['Hello World']
     res.send('Hello World!'); });
 
-router.use('/contacts', require('./coasdtalHikes'));
+router.use('/contacts', require('./coastalHikes'));
 router.use('/trails', require('./trails'));
 
 module.exports = router;
