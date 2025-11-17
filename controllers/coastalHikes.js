@@ -6,7 +6,6 @@ const getAll = async (req, res) => {
     //#swagger.tags = ['Coastal Hikes']
     const coastalHikes = await mongodb
       .getDatabase()
-      .db()
       .collection('coastalHikes')
       .find()
       .toArray();
@@ -29,7 +28,6 @@ const getSingle = async (req, res) => {
   try {
     const coastalHike = await mongodb
       .getDatabase()
-      .db()
       .collection('coastalHikes')
       .findOne({ _id: coastalHikeId });
 
@@ -58,7 +56,6 @@ const createCoastalHike = async (req, res) => {
   try {
     const response = await mongodb
       .getDatabase()
-      .db()
       .collection('coastalHikes')
       .insertOne(coastalHike);
 
@@ -102,7 +99,6 @@ const updateCoastalHike = async (req, res) => {
   try {
     const response = await mongodb
       .getDatabase()
-      .db()
       .collection('coastalHikes')
       .replaceOne({ _id: coastalHikeId }, coastalHike);
 
@@ -130,7 +126,6 @@ const deleteCoastalHike = async (req, res) => {
   try {
     const response = await mongodb
       .getDatabase()
-      .db()
       .collection('coastalHikes')
       .deleteOne({ _id: coastalHikeId });
 
