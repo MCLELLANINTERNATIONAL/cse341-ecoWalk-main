@@ -90,7 +90,7 @@ const updateCoastalHike = async (req, res) => {
     name: req.body.name,
     region: req.body.region, 
     difficulty: req.body.difficulty,
-    distancekm: req.body.distancekm,
+    distanceKm: req.body.distancekm,
     description: req.body.description,
     price: req.body.price,
     availableDates: req.body.availableDates
