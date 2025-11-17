@@ -47,7 +47,7 @@ const createCoastalHike = async (req, res) => {
     name: req.body.name,
     region: req.body.region,
     difficulty: req.body.difficulty,
-    distancekm: req.body.distancekm, // or distanceKm – just be consistent with your DB
+    distanceKm: req.body.distancekm, // or distanceKm – just be consistent with your DB
     description: req.body.description,
     price: req.body.price,
     availableDates: req.body.availableDates
