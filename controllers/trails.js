@@ -47,7 +47,7 @@ const createTrail = async (req, res) => {
     name: req.body.name,
     location: req.body.location,
     difficulty: req.body.difficulty,
-    distancekm: req.body.distancekm,
+    distanceKm: req.body.distancekm,
     description: req.body.description,
     price: req.body.price,
     availableDates: req.body.availableDates
