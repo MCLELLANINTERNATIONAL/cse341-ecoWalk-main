@@ -6,7 +6,6 @@ const getAll = async (req, res) => {
     //#swagger.tags = ['Trails']
     const trails = await mongodb
       .getDatabase()
-      .db()
       .collection('trails')
       .find()
       .toArray();
@@ -29,7 +28,6 @@ const getSingle = async (req, res) => {
   try {
     const trail = await mongodb
       .getDatabase()
-      .db()
       .collection('trails')
       .findOne({ _id: trailId });
 
@@ -58,7 +56,6 @@ const createTrail = async (req, res) => {
   try {
     const response = await mongodb
       .getDatabase()
-      .db()
       .collection('trails')
       .insertOne(trail);
 
@@ -100,7 +97,6 @@ const updateTrail = async (req, res) => {
   try {
     const response = await mongodb
       .getDatabase()
-      .db()
       .collection('trails')
       .replaceOne({ _id: trailId }, trail);
 
@@ -128,7 +124,6 @@ const deleteTrail = async (req, res) => {
   try {
     const response = await mongodb
       .getDatabase()
-      .db()
       .collection('trails')
       .deleteOne({ _id: trailId });
 
