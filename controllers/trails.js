@@ -86,7 +86,7 @@ const updateTrail = async (req, res) => {
   const trailId = new ObjectId(req.params.id);
   const trail = {
     name: req.body.name,
-    location: req.body.region,
+    location: req.body.location,
     difficulty: req.body.difficulty,
     distanceKm: req.body.distancekm,
     description: req.body.description,
