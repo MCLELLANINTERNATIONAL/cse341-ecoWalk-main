@@ -7,7 +7,7 @@ const saveCoastalHikes = (req, res, next) => {
     name: 'required|string',
     region: 'required|string',
     difficulty: 'required|string',
-    distancekm: 'required|numeric',
+    distanceKm: 'required|numeric',
     description: 'required|string',
     price: 'required|numeric',
     availableDates: 'required|array'
@@ -32,7 +32,7 @@ const saveTrails = (req, res, next) => {
     name: 'required|string',
     location: 'required|string',
     difficulty: 'required|string',
-    distancekm: 'required|numeric',
+    distanceKm: 'required|numeric',
     description: 'required|string',
     price: 'required|numeric',
     availableDates: 'required|array'
