@@ -88,7 +88,7 @@ const updateTrail = async (req, res) => {
     name: req.body.name,
     location: req.body.location,
     difficulty: req.body.difficulty,
-    distanceKm: req.body.distancekm,
+    distanceKm: req.body.distanceKm,
     description: req.body.description,
     price: req.body.price,
     availableDates: req.body.availableDates
