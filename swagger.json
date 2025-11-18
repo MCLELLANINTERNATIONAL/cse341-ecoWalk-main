@@ -323,7 +323,7 @@
                 "name": {
                   "example": "any"
                 },
-                "region": {
+                "location": {
                   "example": "any"
                 },
                 "difficulty": {
