@@ -3,15 +3,16 @@ const router = express.Router();
 
 const trailsController = require('../controllers/trails');
 const validation = require('../middleware/validate');
+const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', trailsController.getAll);
 
 router.get('/:id', trailsController.getSingle);
 
-router.post('/', validation.saveTrails, trailsController.createTrail);
+router.post('/', isAuthenticated, validation.saveTrails, trailsController.createTrail);
 
-router.put('/:id', validation.saveTrails, trailsController.updateTrail);
+router.put('/:id', isAuthenticated, validation.saveTrails, trailsController.updateTrail);
 
-router.delete('/:id', trailsController.deleteTrail);
+router.delete('/:id', isAuthenticated, trailsController.deleteTrail);
 
 module.exports = router;
