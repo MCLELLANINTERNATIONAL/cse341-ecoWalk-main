@@ -7,9 +7,6 @@ const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
-// Environment variables
-dotenv.config();
-
 // Register global uncaught exception handler
 process.on('uncaughtException', (err) => {
   console.error('UNCAUGHT EXCEPTION:', err);
