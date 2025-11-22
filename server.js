@@ -11,12 +11,10 @@ const cors = require('cors');
 dotenv.config();
 
 // Register global uncaught exception handler
-process.on('uncaughtException', (err, origin) => {
-  console.error('UNCAUGHT EXCEPTION!');
-  console.error('Error:', err && err.stack ? err.stack : err);
-  console.error('Origin:', origin);
-  process.exit(1); 
-});
+process.on('uncaughtException', (err) => {
+  console.error('UNCAUGHT EXCEPTION:', err);
+  process.exit(1);
+});  
 
 const port = process.env.PORT || 3005;
 const app = express();
