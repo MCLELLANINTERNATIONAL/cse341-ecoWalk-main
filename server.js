@@ -12,7 +12,10 @@ dotenv.config();
 
 // Register global uncaught exception handler
 process.on('uncaughtException', (err, origin) => {
-  console.log(process.stderr.fd, 'Caught exception: ${err}\n' + 'Exception origin: ${origin}');
+  console.error('UNCAUGHT EXCEPTION!');
+  console.error('Error:', err && err.stack ? err.stack : err);
+  console.error('Origin:', origin);
+  process.exit(1); 
 });
 
 const port = process.env.PORT || 3005;
