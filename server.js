@@ -2,10 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const mongodb = require('./data/database');
-const passport = require('passport');
+const passport = require('./config/passport');
 const session = require('express-session');
-const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
+
+dotenv.config();
 
 // Register global uncaught exception handler
 process.on('uncaughtException', (err) => {
@@ -21,13 +22,11 @@ app
   .use(session({
     secret: "secret",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
   }))
   // This is the basic express session({..}) initialization.
   .use(passport.initialize())
-  // init passport on every route call.
   .use(passport.session())
-  // allow passport to use "express-session".
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin','*');
     res.setHeader(
@@ -45,32 +44,21 @@ app
   }))
   .use('/', require('./routes/index'));
 
-  passport.use(new GitHubStrategy({
-    clientID: process.env.GITHUB_CLIENT_ID,
-    clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: process.env.GITHUB_CALLBACK_URL
-  },
-  function(accessToken, refreshToken, profile, done) {
-    // User.findOrcreate({ githubId: profile.id }, function(err, user) {
-    return done(null, profile);
- // });
-  }
-));
-
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-passport.deserializeUser((user, done) => {
-  done(null, user);
-});
-
+// Root route – use req.user (Passport)
 app.get('/', (req, res) => {
-  res.send(req.session.user !== undefined ? 'Logged in as ${req.session.user.displayName}' : 'Logged Out')
+  const user = req.session.user || req.user;
+
+  if (user) {
+    return res.send(`Logged in as ${user.displayName || user.username}`);
+  }
+
+  return res.send("Logged Out");
 });
 
+// GitHub OAuth login route
 app.get(
   '/github/callback',
-  passport.authenticate('github', { failureRedirect: '/api-docs', session: false }),
+  passport.authenticate('github', { failureRedirect: '/api-docs' }),
   (req, res) => {
     req.session.user = req.user;
     res.redirect('/');
